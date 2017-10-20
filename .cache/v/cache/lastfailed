@@ -1,0 +1,3 @@
+{
+  "Tests/test_authentication.py::test_authentication_with_valid_credentials": true
+}

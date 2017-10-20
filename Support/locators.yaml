@@ -1,0 +1,19 @@
+iOS:
+
+Android:
+    loginScreen_domain_button: //*[@text="We will never post on your behalf"]
+    loginScreen_domain_alert_server_core_button: //*[@resource-id="com.phrendly:id/debug_url"]
+    loginScreen_domain_alert_video_calls_cancel: //*[@name="Enable"]
+    loginScreen_email_textfield: //*[@text="EMAIL"]
+    loginScreen_continue_button: //*[@text="Continue"]
+
+    landingScreen_screen_name_staticText: //*[@text="Swipe less, flirt more."]
+    landingScreen_sign_up_button: //*[@text="Sign Up"]
+    landingScreen_login_button: //*[@text="Login"]
+
+    yourin_screen_name_staticText : //*[@class="android.widget.TextView" and @index="0" and @instance="1"]
+    yourin_firstname_textfield : //*[@text="DISPLAY NAME"]
+    yourin_password_textfield : //*[@text="PASSWORD"]
+    yourin_continue_button : //*[@text="Continue"]
+
+    header_browse_title: //*[@resource-id="com.phrendly:id/search_toolbar_text"]
