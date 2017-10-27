@@ -4,9 +4,11 @@ import json
 
 from Fixtures.application import Application
 from Fixtures.users import Users
+from Fixtures.api import Api
 
 application = None
 users_accounts = None
+api_helper = None
 
 @pytest.fixture()
 def app(request):
@@ -34,6 +36,12 @@ def users(request):
     # Everything here will be executed as teardown
     users_accounts.save_users_to_db()
     users_accounts.db_helper.close_connection()
+
+@pytest.fixture()
+def api(request):
+    global api_helper
+    api_helper = Api('')
+    yield api_helper
 
 def pytest_addoption(parser):
     parser.addoption("--platform", action="store")

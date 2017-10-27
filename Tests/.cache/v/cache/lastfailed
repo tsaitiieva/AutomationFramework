@@ -1,1 +1,3 @@
-{}
+{
+  "test_api.py::test_sign_in_valid_credentials": true
+}

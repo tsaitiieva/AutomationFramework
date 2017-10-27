@@ -1,16 +1,14 @@
-# Fix this: from PageObject import *
+#TODO Fix this: from PageObject import * by moving all imports to init.py
 from PageObject.page import Page
 from PageObject.browse_screen import Browse
 from PageObject.landing_screen import Landing
 from PageObject.login_screen import Login
 
-from Steps import Authentication
-
 from appium import webdriver
 
 import logging
 import os.path
-import yaml
+# import yaml
 import csv
 
 
@@ -52,15 +50,11 @@ class Application:
                             handlers=[logging.FileHandler(os.path.join(self.project_dir, "Logfile.log")), logging.StreamHandler()])
         self.logger = logging.getLogger("Logger")
 
-        # Page.driver = self.driver
-
         # Create page object instances
         self.browse_screen = Browse(self)
         self.landing_screen = Landing(self)
         self.login_screen = Login(self)
 
-        # # Create steps instances
-        # self.authentication = Authentication(self)
 
     def log(self, logging_string):
         self.logger.info(logging_string)
