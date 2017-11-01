@@ -55,8 +55,13 @@ class Application:
         self.landing_screen = Landing(self)
         self.login_screen = Login(self)
 
-
     def log(self, logging_string):
         self.logger.info(logging_string)
+
+    def get_pagesource(self, filename):
+        source = self.driver.page_source
+        project_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../")
+        with open(os.path.join(project_dir, filename), 'w') as file:
+            file.write(source)
 
 
