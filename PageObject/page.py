@@ -19,9 +19,17 @@ class Page:
             locator_strategy = MobileBy.XPATH
         elif locate_by.lower() == 'id':
             locator_strategy = MobileBy.ID
-
-        if locator_strategy is not None:
-            WebDriverWait(self.app.driver, 30).until(EC.presence_of_element_located((locator_strategy, locator)))
         else:
-            raise ValueError('Undefined locator strategy {}'.format(locate_by))
+            raise ValueError('Unknown locator strategy {}'.format(locate_by))
+
+        WebDriverWait(self.app.driver, 30).until(EC.presence_of_element_located((locator_strategy, locator)))
+
+    def find_element(self, locate_by, locator):
+        if locate_by.lower() == 'xpath':
+            return self.app.driver.find_element_by_xpath(locator)
+        elif locate_by.lower() == 'id':
+            return self.app.driver.find_element_by_id(locator)
+        else:
+            raise ValueError('Unknown locator strategy {}'.format(locate_by))
+
 

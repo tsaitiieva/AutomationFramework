@@ -2,7 +2,8 @@
 from PageObject.page import Page
 from PageObject.browse_screen import Browse
 from PageObject.landing_screen import Landing
-from PageObject.login_screen import Login
+from PageObject.login_email_screen import LoginEmail
+from PageObject.login_pswd_screen import LoginPswd
 
 from appium import webdriver
 
@@ -13,7 +14,7 @@ import csv
 
 
 class Application:
-    def __init__(self, platform_type, server_name):
+    def __init__(self, platform_type, server):
         self.project_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../")
 
         desired_caps = {}
@@ -31,7 +32,7 @@ class Application:
             server_url = 'http://127.0.0.1:4777/wd/hub'
 
         self.driver = webdriver.Remote(server_url, desired_caps)
-        self.server_name = server_name
+        self.server = server
         self.platform = platform_type
 
         #Load locators
@@ -55,7 +56,8 @@ class Application:
         # Create page object instances
         self.browse_screen = Browse(self)
         self.landing_screen = Landing(self)
-        self.login_screen = Login(self)
+        self.login_email_screen = LoginEmail(self)
+        self.login_pswd_screen = LoginPswd(self)
 
     def log(self, logging_string):
         self.logger.info(logging_string)
