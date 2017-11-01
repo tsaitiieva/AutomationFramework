@@ -2,16 +2,13 @@ import os.path
 import requests
 
 
-from PageObject.api_helpers import ApiHelpers
 from Model.ApiRequest import ApiRequest
 
 class Api:
     def __init__(self, server_url):
-        # self.url = server_url
-        self.url = 'https://core-master-core-master.phrend.net'
+        self.url = server_url
+        # self.url = 'https://core-master-core-master.phrend.net'
         self.request = None
-
-        self.helper = ApiHelpers()
 
     def get_json_scheme(self, scheme_name):
         project_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../")
@@ -42,4 +39,4 @@ class Api:
         elif type.upper() == 'DELETE':
             return requests.delete(uri, headers=self.request.headers, params=self.request.params, data=self.request.data)
         else:
-            raise "No method defined"
+            raise ValueError('No method defined')

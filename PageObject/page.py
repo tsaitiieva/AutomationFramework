@@ -21,9 +21,7 @@ class Page:
             locator_strategy = MobileBy.ID
 
         if locator_strategy is not None:
-            # WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.ID, "Username")))
             WebDriverWait(self.app.driver, 30).until(EC.presence_of_element_located((locator_strategy, locator)))
         else:
-            print("Undefined locator strategy {}".format(locate_by))
-            # raise
+            raise ValueError('Undefined locator strategy {}'.format(locate_by))
 

@@ -1,11 +1,14 @@
 from jsonschema import validate
+from PageObject import api_helpers
 
 
 def create_request_and_get_required_parameters(api, users, api_helpers_method, user):
     api.create_request()
-    print(users.accounts)
-    print(api.helper.return_sign_in_user(users.accounts[user]))
-    api.request.add_data(api.helper.return_sign_in_user(users.accounts[user]))
+    method_to_call = getattr(api_helpers, 'return_{}'.format(api_helpers_method))
+    # api.request.add_data(api.helper.return_sign_in_user(users.accounts[user]))
+    print(users.accounts[user])
+    user_info = users.accounts[user]
+    api.request.add_data(method_to_call(users.accounts[user]))
 
 
 def send_post_request_to_url(api, url):
