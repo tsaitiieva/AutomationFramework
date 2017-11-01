@@ -1,4 +1,6 @@
 
+import time
+
 def verify_that_landing_screen_is_displayed_correctly(app):
     app.landing_screen.wait_page_to_load()
     assert app.landing_screen.get_title_text() == 'Swipe less, flirt more.'

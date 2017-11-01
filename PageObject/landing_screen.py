@@ -13,6 +13,7 @@ class Landing(Page):
         self.wait_element_to_load('xpath', self.app.locators['landingScreen_screen_name_staticText'])
 
     def get_title(self):
+        print(self.app.locators['landingScreen_screen_name_staticText'])
         return self.app.driver.find_element_by_xpath(self.app.locators['landingScreen_screen_name_staticText'])
 
     def get_sign_up_btn(self):

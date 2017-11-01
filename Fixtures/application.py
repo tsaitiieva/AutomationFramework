@@ -44,6 +44,8 @@ class Application:
             for row in reader:
                 self.locators[row['Locator']] = row[platform_type]
 
+        print (self.locators)
+
         # Initialize logger
         logging.basicConfig(level=logging.INFO,
                             format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p',

@@ -36,7 +36,6 @@ def read_config():
 @pytest.fixture()
 def app(request):
     options = read_option(request)
-    print('-------------')
     if options['platform']=='Android' or options['platform']=='iOS':
         global application
         config = read_config()
