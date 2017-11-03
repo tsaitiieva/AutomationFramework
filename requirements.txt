@@ -1,0 +1,15 @@
+Appium-Python-Client==0.24
+certifi==2017.7.27.1
+chardet==3.0.4
+enum34==1.1.6
+idna==2.6
+jsonschema==2.6.0
+lxml==4.1.0
+namedlist==1.7
+py==1.4.34
+pytest==3.2.3
+pytest-allure-adaptor==1.7.9
+requests==2.18.4
+selenium==3.7.0
+six==1.11.0
+urllib3==1.22
