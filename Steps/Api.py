@@ -26,6 +26,8 @@ def verify_that_response_match_json_schema(api, shmene_name):
     print("Json scheme ===>")
     print(api.get_json_scheme(shmene_name))
 
+    print("Json response ===>")
+    print(api.request.response)
     validate(api.request.response, api.get_json_scheme(shmene_name))
 
 

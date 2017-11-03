@@ -1,5 +1,6 @@
 import os.path
 import requests
+import json
 
 
 from Model.ApiRequest import ApiRequest
@@ -14,7 +15,7 @@ class Api:
         project_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../")
         path_to_scheme = os.path.join(project_dir, "Support/JSON_scheme/{}.json".format(scheme_name))
         with open(path_to_scheme, 'r') as scheme:
-            return scheme.read()
+            return json.load(scheme)
 
     def create_request(self):
         self.request = ApiRequest()
