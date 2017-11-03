@@ -7,3 +7,5 @@ appium -p [port] --chromedriver-executable [path to chromedriver from Tools fold
 
 Allure report generation:
 allure serve allure/report
+
+For new branch and contributor access
