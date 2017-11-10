@@ -1,33 +1,30 @@
 from jsonschema import validate
-from PageObject import api_helpers
+import allure
 
 
-def create_request_and_get_required_parameters(api, users, api_helpers_method, user):
-    api.create_request()
-    method_to_call = getattr(api_helpers, 'return_{}'.format(api_helpers_method))
-    # api.request.add_data(api.helper.return_sign_in_user(users.accounts[user]))
-    print(users.accounts[user])
-    user_info = users.accounts[user]
-    api.request.add_data(method_to_call(users.accounts[user]))
+@allure.step("Create request with required parameters")
+def create_request_with_required_parameters(api, users, api_helpers_method=None, user=None, *parameters):
+    """
+    Create request with defual headers, if api_helpers_method is transefered addtitional data will be attached to request
+    """
+    api.create_request_with_default_headers()
+    if api_helpers_method is not None:
+        api.add_parameters(users, api_helpers_method, user, parameters)
 
 
-def send_post_request_to_url(api, url):
-    # method_to_call = getattr(foo, 'bar')
-    # result = method_to_call()
-    response = api.send_request(url, 'post')
+@allure.step("Send request to url")
+def send_request_to_url(api, request_type, url):
+    response = api.send_request(url, request_type)
     api.request.add_response(response)
 
 
+@allure.step("Verify that response code is correct")
 def verify_that_response_code_is_correct(api, code):
     assert api.request.response_code == code
 
 
+@allure.step("Verify that response match json schema")
 def verify_that_response_match_json_schema(api, shmene_name):
-    print("Json scheme ===>")
-    print(api.get_json_scheme(shmene_name))
-
-    print("Json response ===>")
-    print(api.request.response)
     validate(api.request.response, api.get_json_scheme(shmene_name))
 
 

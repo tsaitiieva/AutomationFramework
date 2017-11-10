@@ -26,3 +26,7 @@ class ApiRequest:
     def add_data(self, data):
         if data is not None:
             self.data = json.dumps(data)
+
+    def clear_response(self):
+        self.response_code = None
+        self.response = None

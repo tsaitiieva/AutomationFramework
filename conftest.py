@@ -14,15 +14,18 @@ api_helper = None
 def read_option(request):
     #Loading options from terminal
     options = {}
-    platform = request.config.getoption("--platform")
-    if platform.lower() == 'android':
-        options['platform'] = 'Android'
-    elif platform.lower() == 'ios':
-        options['platform'] = 'iOS'
-    elif platform.lower() == 'api':
-        options['platform'] = 'API'
-    else:
-        raise ValueError('Unknown platform')
+    try:
+        platform = request.config.getoption("--platform")
+        if platform.lower() == 'android':
+            options['platform'] = 'Android'
+        elif platform.lower() == 'ios':
+            options['platform'] = 'iOS'
+        elif platform.lower() == 'api':
+            options['platform'] = 'API'
+        else:
+            raise ValueError('Unknown platform')
+    except:
+        raise ValueError('No platform has been tranfered. Please specify pltform in the following way: --platform=[platform]')
 
     return options
 
@@ -65,7 +68,7 @@ def users(request):
     print(users_accounts)
     yield users_accounts
     # Everything here will be executed as teardown
-    users_accounts.save_users_to_db()
+    users_accounts.db_helper.save_changes()
     users_accounts.db_helper.close_connection()
 
 

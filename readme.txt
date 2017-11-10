@@ -1,6 +1,6 @@
 http://docs.python-guide.org/en/latest/dev/virtualenvs/
 
-!!!! In PyCharm change project interpreter to virtualenv !!!!!
+!!!! In PyCharm->Preferences->Buil, Execution, Deployment change project interpreter to virtualenv !!!!!
 
 install globally
 pip install virtualenv

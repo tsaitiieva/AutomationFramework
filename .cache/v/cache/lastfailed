@@ -1,3 +1,4 @@
 {
+  "Tests/test_api.py::test_sign_in_valid_credentials": true,
   "Tests/test_authentication.py::test_authentication_with_valid_credentials": true
 }

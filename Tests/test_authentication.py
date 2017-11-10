@@ -1,4 +1,3 @@
-#TODO move all imports to init.py file
 import time
 from Steps import Authentication
 

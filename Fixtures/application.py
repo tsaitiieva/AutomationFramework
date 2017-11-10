@@ -1,4 +1,3 @@
-#TODO Fix this: from PageObject import * by moving all imports to init.py
 from PageObject.page import Page
 from PageObject.browse_screen import Browse
 from PageObject.landing_screen import Landing
@@ -64,8 +63,8 @@ class Application:
 
     def get_pagesource(self, filename):
         source = self.driver.page_source
-        project_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../")
-        with open(os.path.join(project_dir, filename), 'w') as file:
-            file.write(source)
+        project_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../Temp/")
+        with open(os.path.join(project_dir, filename), 'a', encoding='utf-8') as f:
+            f.write(source)
 
 
