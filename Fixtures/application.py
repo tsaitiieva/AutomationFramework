@@ -1,4 +1,3 @@
-from PageObject.page import Page
 from PageObject.browse_screen import Browse
 from PageObject.landing_screen import Landing
 from PageObject.login_email_screen import LoginEmail
