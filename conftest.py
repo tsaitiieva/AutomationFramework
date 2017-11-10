@@ -5,10 +5,12 @@ import json
 from Fixtures.application import Application
 from Fixtures.users import Users
 from Fixtures.api import Api
+from Fixtures.helper import Helper
 
 application = None
 users_accounts = None
 api_helper = None
+helper = None
 
 
 def read_option(request):
@@ -36,26 +38,32 @@ def read_config():
         return json.load(f)
 
 
+@pytest.fixture(scope='session')
+def helper():
+    global helper
+    helper = Helper()
+    yield helper
+
+
 @pytest.fixture()
-def app(request):
+def app(request, helper):
     options = read_option(request)
     if options['platform']=='Android' or options['platform']=='iOS':
         global application
         config = read_config()
         if application is None:
-            application = Application(options['platform'], config['server'])
+            application = Application(helper, options['platform'], config['server'])
         yield application
         # Everything here will be executed as teardown
-        # application.destroy()
 
 
 @pytest.fixture()
-def api(request):
+def api(request, helper):
     options = read_option(request)
     if options['platform']=='API':
         global api_helper
         config = read_config()
-        api_helper = Api(config['server'])
+        api_helper = Api(helper, config['server'])
         yield api_helper
 
 
@@ -65,7 +73,6 @@ def users(request):
     users_accounts = Users()
     options = read_option(request)
     users_accounts.get_users_from_db(options['platform'])
-    print(users_accounts)
     yield users_accounts
     # Everything here will be executed as teardown
     users_accounts.db_helper.save_changes()
