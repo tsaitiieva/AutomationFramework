@@ -51,7 +51,7 @@ class Application:
 
     def get_pagesource(self, filename):
         source = self.driver.page_source
-        with open(os.path.join(self.helper.root_path, "/Temp/{}".format(filename)), 'a', encoding='utf-8') as f:
+        with open(os.path.join(self.helper.root_path, "Temp/{}".format(filename)), 'a', encoding='utf-8') as f:
             f.write(source)
 
 

@@ -1,6 +1,7 @@
 import pytest
 import os.path
 import json
+import allure
 
 from Fixtures.application import Application
 from Fixtures.users import Users
