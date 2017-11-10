@@ -1,7 +1,7 @@
 from PageObject.page import Page
 
 
-class LoginPswd(Page):
+class LoginPassword(Page):
     def __init__(self, app):
         super().__init__(app)
 

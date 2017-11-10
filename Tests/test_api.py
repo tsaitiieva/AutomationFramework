@@ -1,8 +1,7 @@
 from Steps import Api
 
 
-def test_sign_in_valid_credentials(api, users):
-    Api.create_request_with_required_parameters(api, users, 'sign_in_user', 'seeded_male')
-    Api.send_request_to_url(api, 'post','/users/sign_in.json')
-    Api.verify_that_response_code_is_correct(api, 201)
-    Api.verify_that_response_match_json_schema(api, 'sign_in')
+def test_api(api, users):
+    """Use steps from Api file in Steps folder
+    [Api].step_name()"""
+    pass

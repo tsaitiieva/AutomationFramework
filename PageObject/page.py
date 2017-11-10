@@ -4,6 +4,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 
 class Page:
+    """Basic class. All page object extemds this class.
+    Add here all methods general for all pages such as swipe, scroll etc."""
+
     def __init__(self, app):
         self.app = app
 

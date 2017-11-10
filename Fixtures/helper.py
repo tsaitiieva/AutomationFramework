@@ -4,6 +4,10 @@ import logging
 
 
 class Helper:
+    """Helper class with some useful methods.
+    You can work with its methods by calling its instance from api or app fixtures
+    """
+
     def __init__(self):
         self.root_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../")
 

@@ -2,7 +2,6 @@ import json
 
 
 class ApiRequest:
-
     def __init__(self):
         self.headers = {}
         self.data = None

@@ -1,12 +1,2 @@
 Locator,iOS,Android
-landingScreen_screen_name_staticText,"//*[@name=""Swipe less, flirt more.""]","//*[@text=""Swipe less, flirt more.""]"
-landingScreen_sign_up_button,"//XCUIElementTypeButton[@name=""Sign Up""]","//*[@text=""Sign Up""]"
-landingScreen_login_button,"//XCUIElementTypeButton[@name=""Login""]","//*[@text=""Login""]"
-loginScreen_domain_button,"//XCUIElementTypeButton[@name=""We will never post on your behalf""]","//*[@text=""We will never post on your behalf""]"
-loginScreen_domain_alert_server_core_button,"//*[@name=""Core-master""]","//*[@resource-id=""com.phrendly:id/debug_url""]"
-loginScreen_domain_alert_video_calls_cancel,"//*[@name=""Enable""]","//*[@name=""Enable""]"
-loginScreen_email_textfield,//XCUIElementTypeTextField,"//*[@text=""EMAIL""]"
-loginScreen_continue_button,"//XCUIElementTypeButton[@name=""Continue""]","//*[@text=""Continue""]"
-passwordScreen_password_textfield,//XCUIElementTypeSecureTextField,"//*[@text=""PASSWORD""]"
-passwordScreen_letsgo_button,"//XCUIElementTypeButton[@name=""Let's Go!""]","//*[@text=""Let's Go!""]"
-header_browse_title,"//*[@name=""browse_name_staticText""]","//*[@resource-id=""com.phrendly:id/search_toolbar_text""]"
+locator_name,iOS_locator,Android_locator
