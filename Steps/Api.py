@@ -13,8 +13,8 @@ def create_request_with_required_parameters(api, users, api_helpers_method=None,
 
 
 @allure.step("Send request to url")
-def send_request_to_url(api, request_type, url):
-    response = api.send_request(url, request_type)
+def send_request_to_url(api, url, request_type, headers=None, params=None, data=None):
+    response = api.send_request(url, request_type, headers, params, data)
     api.request.add_response(response)
 
 
