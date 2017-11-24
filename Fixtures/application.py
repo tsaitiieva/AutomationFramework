@@ -12,8 +12,9 @@ import csv
 
 
 class Application:
-    def __init__(self, helper, platform_type, server):
+    def __init__(self, helper, session, platform_type, server):
         self.helper = helper
+        self.session = session
 
         desired_caps = {}
         if platform_type == 'Android':

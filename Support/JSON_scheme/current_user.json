@@ -1,0 +1,265 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "additionalProperties": false,
+  "definitions": {},
+  "id": "current_user.json",
+  "properties": {
+    "age": {
+      "id": "/properties/age",
+      "type": "integer"
+    },
+    "audio_minutes_per_drink": {
+      "id": "/properties/audio_minutes_per_drink",
+      "type": "string"
+    },
+    "availability_channel_name": {
+      "id": "/properties/availability_channel_name",
+      "type": "string"
+    },
+    "available_balance": {
+      "id": "/properties/available_balance",
+      "type": "string"
+    },
+    "available_now": {
+      "id": "/properties/available_now",
+      "type": "boolean"
+    },
+    "available_sips": {
+      "id": "/properties/available_sips",
+      "type": "integer"
+    },
+    "balance": {
+      "id": "/properties/balance",
+      "type": "string"
+    },
+    "busy_on_phone_call": {
+      "id": "/properties/busy_on_phone_call",
+      "type": "boolean"
+    },
+    "busy_on_video_call": {
+      "id": "/properties/busy_on_video_call",
+      "type": "boolean"
+    },
+    "default_cc_id": {
+      "id": "/properties/default_cc_id",
+      "type": ["null","integer"]
+    },
+    "deposit_balance": {
+      "id": "/properties/deposit_balance",
+      "type": "string"
+    },
+    "eligible_for_first_card_reward": {
+      "id": "/properties/eligible_for_first_card_reward",
+      "type": "boolean"
+    },
+    "flags": {
+      "additionalProperties": false,
+      "id": "/properties/flags",
+      "properties": {
+        "do_not_send_missed_call_reminders": {
+          "id": "/properties/flags/properties/do_not_send_missed_call_reminders",
+          "type": "boolean"
+        },
+        "hide_close_chat_confirmation": {
+          "id": "/properties/flags/properties/hide_close_chat_confirmation",
+          "type": "boolean"
+        },
+        "hide_unstar_warning": {
+          "id": "/properties/flags/properties/hide_unstar_warning",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "hide_unstar_warning",
+        "do_not_send_missed_call_reminders",
+        "hide_close_chat_confirmation"
+      ],
+      "type": "object"
+    },
+    "gender": {
+      "id": "/properties/gender",
+      "type": "string"
+    },
+    "greeting": {
+      "id": "/properties/greeting",
+      "type": "string"
+    },
+    "has_pending_profile": {
+      "id": "/properties/has_pending_profile",
+      "type": "boolean"
+    },
+    "has_private_profile": {
+      "id": "/properties/has_private_profile",
+      "type": "boolean"
+    },
+    "has_public_profile": {
+      "id": "/properties/has_public_profile",
+      "type": "boolean"
+    },
+    "has_sent_message": {
+      "id": "/properties/has_sent_message",
+      "type": "boolean"
+    },
+    "icon_path": {
+      "id": "/properties/icon_path",
+      "type": "string"
+    },
+    "id": {
+      "id": "/properties/id",
+      "type": "integer"
+    },
+    "images": {
+      "id": "/properties/images",
+      "items": {
+        "id": "/properties/images/items",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "is_speaker": {
+      "id": "/properties/is_speaker",
+      "type": "boolean"
+    },
+    "milestone": {
+      "additionalProperties": false,
+      "id": "/properties/milestone",
+      "properties": {
+        "id": {
+          "id": "/properties/milestone/properties/id",
+          "type": "integer"
+        },
+        "user_id": {
+          "id": "/properties/milestone/properties/user_id",
+          "type": "integer"
+        },
+        "well_established": {
+          "id": "/properties/milestone/properties/well_established",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "user_id",
+        "id",
+        "well_established"
+      ],
+      "type": "object"
+    },
+    "name": {
+      "id": "/properties/name",
+      "type": "string"
+    },
+    "num_of_cards_with_deleted": {
+      "id": "/properties/num_of_cards_with_deleted",
+      "type": "integer"
+    },
+    "num_of_verified_phones": {
+      "id": "/properties/num_of_verified_phones",
+      "type": "integer"
+    },
+    "num_of_verified_phones_with_deleted": {
+      "id": "/properties/num_of_verified_phones_with_deleted",
+      "type": "integer"
+    },
+    "phone_call_enabled": {
+      "id": "/properties/phone_call_enabled",
+      "type": "boolean"
+    },
+    "phone_minutes_per_drink": {
+      "id": "/properties/phone_minutes_per_drink",
+      "type": "string"
+    },
+    "public_channel_name": {
+      "id": "/properties/public_channel_name",
+      "type": "string"
+    },
+    "relationship_speed": {
+      "id": "/properties/relationship_speed",
+      "type": "string"
+    },
+    "seeking_gender": {
+      "id": "/properties/seeking_gender",
+      "type": "string"
+    },
+    "show_spruce_profile": {
+      "id": "/properties/show_spruce_profile",
+      "type": "boolean"
+    },
+    "slug": {
+      "id": "/properties/slug",
+      "type": "string"
+    },
+    "status": {
+      "id": "/properties/status",
+      "type": "string"
+    },
+    "unread_messages": {
+      "id": "/properties/unread_messages",
+      "type": "integer"
+    },
+    "unverified_phone": {
+      "id": "/properties/unverified_phone",
+      "type": "null"
+    },
+    "video_call_enabled": {
+      "id": "/properties/video_call_enabled",
+      "type": "boolean"
+    },
+    "is_profile_photo_blur" : {
+      "id": "/properties/is_profile_photo_blur",
+      "type": "boolean"
+    },
+    "video_minutes_per_drink": {
+      "id": "/properties/video_minutes_per_drink",
+      "type": "string"
+    },
+    "giftable_balance": {
+      "id": "/properties/giftable_balance",
+      "type": "string"
+    }
+  },
+  "required": [
+    "phone_call_enabled",
+    "video_call_enabled",
+    "is_profile_photo_blur",
+    "has_public_profile",
+    "num_of_verified_phones",
+    "busy_on_phone_call",
+    "available_sips",
+    "images",
+    "show_spruce_profile",
+    "has_pending_profile",
+    "video_minutes_per_drink",
+    "available_now",
+    "public_channel_name",
+    "id",
+    "unread_messages",
+    "status",
+    "seeking_gender",
+    "relationship_speed",
+    "icon_path",
+    "is_speaker",
+    "eligible_for_first_card_reward",
+    "availability_channel_name",
+    "available_balance",
+    "audio_minutes_per_drink",
+    "milestone",
+    "has_private_profile",
+    "num_of_cards_with_deleted",
+    "slug",
+    "unverified_phone",
+    "name",
+    "busy_on_video_call",
+    "gender",
+    "age",
+    "deposit_balance",
+    "greeting",
+    "num_of_verified_phones_with_deleted",
+    "default_cc_id",
+    "flags",
+    "phone_minutes_per_drink",
+    "balance",
+    "has_sent_message",
+    "giftable_balance"
+  ],
+  "type": "object"
+}

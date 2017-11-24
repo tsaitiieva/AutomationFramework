@@ -8,8 +8,9 @@ from PageObject import api_helpers
 
 
 class Api:
-    def __init__(self, helper, server_url):
+    def __init__(self, helper, session, server_url):
         self.helper = helper
+        self.session = session
         self.url = server_url
         self.request = None
 
@@ -18,7 +19,7 @@ class Api:
         with open(path_to_scheme, 'r') as scheme:
             return json.load(scheme)
 
-    def add_parameters(self, users, api_helpers_method, user, args):
+    def add_parameters(self, api_helpers_method, user, args):
         """
         Call method from api_helpers with specified arguments and use its result as request data
         """
@@ -29,42 +30,37 @@ class Api:
         elif user is None:
             self.request.add_data(method_to_call(args))
         elif user is not None and len(args) == 0:
-            self.request.add_data(method_to_call(users.accounts[user]))
+            self.request.add_data(method_to_call(self.session.users[user]))
         else:
-            self.request.add_data(method_to_call(users.accounts[user], args))
+            self.request.add_data(method_to_call(self.session.users[user], args))
 
     def create_request_with_default_headers(self):
         self.request = ApiRequest()
         self.request.headers["content-type"] = "application/json"
 
-    def send_request(self, url, type, headers=None, params=None, data=None):
+    def send_request(self, url, type, headers=None, params=None, data=None, cookies=None):
         uri = "{}{}".format(self.url, url)
+
+        if self.request is None:
+            self.create_request_with_default_headers()
 
         self.request.add_headers(headers)
         self.request.add_params(params)
         self.request.add_data(data)
+        self.request.add_cookies(cookies)
+
+        self.helper.attach_file('Headers', self.request.headers)
+        self.helper.attach_file('Parameters', self.request.params)
+        self.helper.attach_file('Data', self.request.data)
+        self.helper.attach_file('Cookies', self.request.cookies)
 
         if type.upper() == 'GET':
-            self.helper.attach_file('Headers', self.request.headers)
-
-            return requests.get(uri, headers=self.request.headers)
+            return requests.get(uri, headers=self.request.headers, cookies=self.request.cookies)
         elif type.upper() == 'PUT':
-            self.helper.attach_file('Headers', self.request.headers)
-            self.helper.attach_file('Parameters', self.request.params)
-            self.helper.attach_file('Data', self.request.data)
-
-            return requests.put(uri, headers=self.request.headers, params=self.request.params, data=self.request.data)
+            return requests.put(uri, headers=self.request.headers, params=self.request.params, data=self.request.data, cookies=self.request.cookies)
         elif type.upper() == 'POST':
-            self.helper.attach_file('Headers', self.request.headers)
-            self.helper.attach_file('Parameters', self.request.params)
-            self.helper.attach_file('Data', self.request.data)
-
-            return requests.post(uri, headers=self.request.headers, params=self.request.params, data=self.request.data)
+            return requests.post(uri, headers=self.request.headers, params=self.request.params, data=self.request.data, cookies=self.request.cookies)
         elif type.upper() == 'DELETE':
-            self.helper.attach_file('Header', self.request.headers)
-            self.helper.attach_file('Parameters', self.request.params)
-            self.helper.attach_file('Data', self.request.data)
-
-            return requests.delete(uri, headers=self.request.headers, params=self.request.params, data=self.request.data)
+            return requests.delete(uri, headers=self.request.headers, params=self.request.params, data=self.request.data, cookies=self.request.cookies)
         else:
             raise ValueError('No method defined')

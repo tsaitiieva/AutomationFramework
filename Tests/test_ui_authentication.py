@@ -2,8 +2,8 @@ import time
 from Steps import Authentication
 
 
-def test_authentication_with_valid_credentials(app, users):
-    user = users.accounts['seeded_male']
+def test_authentication_with_valid_credentials(app):
+    user = app.session.users['seeded_male']
     Authentication.verify_that_landing_screen_is_displayed_correctly(app)
     Authentication.choose_login_on_landing_screen(app)
     Authentication.verify_that_email_login_screen_is_displayed_correctly(app)

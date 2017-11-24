@@ -4,14 +4,15 @@ import json
 import allure
 
 from Fixtures.application import Application
-from Fixtures.users import Users
+from Fixtures.session import Session
 from Fixtures.api import Api
 from Fixtures.helper import Helper
 
-application = None
-users_accounts = None
+ui_helper = None
 api_helper = None
-helper = None
+
+session_helper = None
+support_helper = None
 
 
 def read_option(request):
@@ -41,43 +42,45 @@ def read_config():
 
 @pytest.fixture(scope='session')
 def helper():
-    global helper
-    helper = Helper()
-    yield helper
+    global support_helper
+    if support_helper is None:
+        support_helper = Helper()
+    yield support_helper
 
 
 @pytest.fixture()
 def app(request, helper):
     options = read_option(request)
     if options['platform']=='Android' or options['platform']=='iOS':
-        global application
+        global ui_helper
         config = read_config()
-        if application is None:
-            application = Application(helper, options['platform'], config['server'])
-        yield application
+        if ui_helper is None:
+            ui_helper = Application(helper, session, options['platform'], config['server'])
+        yield ui_helper
         # Everything here will be executed as teardown
 
 
 @pytest.fixture()
-def api(request, helper):
+def api(request, helper, session):
     options = read_option(request)
     if options['platform']=='API':
         global api_helper
         config = read_config()
-        api_helper = Api(helper, config['server'])
+        api_helper = Api(helper, session, config['server'])
         yield api_helper
 
 
 @pytest.fixture(scope='session')
-def users(request):
-    global users_accounts
-    users_accounts = Users()
-    options = read_option(request)
-    users_accounts.get_users_from_db(options['platform'])
-    yield users_accounts
+def session(request):
+    global session_helper
+    if session_helper is None:
+        session_helper = Session()
+        options = read_option(request)
+        session_helper.get_users_from_db(options['platform'])
+    yield session_helper
     # Everything here will be executed as teardown
-    users_accounts.db_helper.save_changes()
-    users_accounts.db_helper.close_connection()
+    session_helper.db_helper.save_changes()
+    session_helper.db_helper.close_connection()
 
 
 def pytest_addoption(parser):
