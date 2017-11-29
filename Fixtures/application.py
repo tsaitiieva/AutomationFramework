@@ -12,7 +12,7 @@ import csv
 
 
 class Application:
-    def __init__(self, helper, session, platform_type, server):
+    def __init__(self, helper, session, platform_type, server_options):
         self.helper = helper
         self.session = session
 
@@ -31,7 +31,7 @@ class Application:
             server_url = 'http://127.0.0.1:4777/wd/hub'
 
         self.driver = webdriver.Remote(server_url, desired_caps)
-        self.server = server
+        self.server = server_options['url'] #TODO add check for empty URL
         self.platform = platform_type
 
         #Load locators

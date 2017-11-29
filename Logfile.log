@@ -6,3 +6,213 @@
 11/10/2017 06:10:41 PM /Temp/Pswd
 11/10/2017 06:14:06 PM /Users/tsaytieva/PycharmProjects/AutomationFramework_origina/Fixtures/../
 11/10/2017 06:14:06 PM /Users/tsaytieva/PycharmProjects/AutomationFramework_origina/Fixtures/../Temp/Pswd
+11/24/2017 01:35:12 PM <Model.ApiRequest.ApiRequest object at 0x104bf50b8>
+11/24/2017 01:36:42 PM <Model.ApiRequest.ApiRequest object at 0x104bc70f0>
+11/24/2017 01:36:42 PM {'content-type': 'application/json'}
+11/24/2017 01:36:42 PM {"user": {"email": "api_male_seeker1@a.com", "password": "12345678"}}
+11/24/2017 01:37:23 PM None
+11/24/2017 02:11:40 PM Test sign in with valid credentials
+11/24/2017 02:11:41 PM Test get current user info
+11/24/2017 02:15:49 PM Test sign in with valid credentials
+11/24/2017 02:15:50 PM Test get current user info
+11/24/2017 02:18:52 PM Test sign in with valid credentials
+11/24/2017 02:18:52 PM https://core-master-core-master.phrend.net/users/sign_in.json
+11/24/2017 02:18:52 PM None
+11/24/2017 02:18:52 PM None
+11/24/2017 02:18:54 PM Test get current user info
+11/24/2017 02:18:54 PM https://core-master-core-master.phrend.net/current_user.json
+11/24/2017 02:18:54 PM None
+11/24/2017 02:18:54 PM None
+11/24/2017 02:19:30 PM Test sign in with valid credentials
+11/24/2017 02:19:30 PM https://core-master-core-master.phrend.net/users/sign_in.json
+11/24/2017 02:19:30 PM None
+11/24/2017 02:19:30 PM None
+11/24/2017 02:23:34 PM Test sign in with valid credentials
+11/24/2017 02:23:34 PM https://core-master-core-master.phrend.net/users/sign_in.json
+11/24/2017 02:23:34 PM {'content-type': 'application/json'}
+11/24/2017 02:23:34 PM {"user": {"email": "api_male_seeker1@a.com", "password": "12345678"}}
+11/24/2017 02:23:35 PM Test get current user info
+11/24/2017 02:23:35 PM https://core-master-core-master.phrend.net/current_user.json
+11/24/2017 02:23:35 PM {'content-type': 'application/json'}
+11/24/2017 02:23:35 PM None
+11/24/2017 02:27:35 PM Test sign in with valid credentials
+11/24/2017 02:27:35 PM https://core-master-core-master.phrend.net/users/sign_in.json
+11/24/2017 02:27:35 PM {'content-type': 'application/json'}
+11/24/2017 02:27:35 PM {"user": {"email": "api_male_seeker1@a.com", "password": "12345678"}}
+11/24/2017 02:27:36 PM 0fbdcce200600a89bb5bdfba957eb40e
+11/24/2017 02:27:36 PM 0fbdcce200600a89bb5bdfba957eb40e
+11/24/2017 02:27:48 PM Test sign in with valid credentials
+11/24/2017 02:27:48 PM https://core-master-core-master.phrend.net/users/sign_in.json
+11/24/2017 02:27:48 PM {'content-type': 'application/json'}
+11/24/2017 02:27:48 PM {"user": {"email": "api_male_seeker1@a.com", "password": "12345678"}}
+11/24/2017 02:27:49 PM 9f0294bb99f9103c19fdfc7ae455462c
+11/24/2017 02:27:49 PM 9f0294bb99f9103c19fdfc7ae455462c
+11/24/2017 02:27:49 PM Test get current user info
+11/24/2017 02:29:58 PM Test sign in with valid credentials
+11/24/2017 02:29:58 PM https://core-master-core-master.phrend.net/users/sign_in.json
+11/24/2017 02:29:58 PM {'content-type': 'application/json'}
+11/24/2017 02:29:58 PM {"user": {"email": "api_male_seeker1@a.com", "password": "12345678"}}
+11/24/2017 02:29:59 PM bd00749daa56682b35cbe019e864bd99
+11/24/2017 02:29:59 PM bd00749daa56682b35cbe019e864bd99
+11/24/2017 02:29:59 PM Test get current user info
+11/24/2017 02:31:43 PM Test sign in with valid credentials
+11/24/2017 02:31:43 PM https://core-master-core-master.phrend.net/users/sign_in.json
+11/24/2017 02:31:43 PM {'content-type': 'application/json'}
+11/24/2017 02:31:43 PM {"user": {"email": "api_male_seeker1@a.com", "password": "12345678"}}
+11/24/2017 02:31:44 PM 9784182ad94aaed62f2b7f620ea88c7d
+11/24/2017 02:31:44 PM 9784182ad94aaed62f2b7f620ea88c7d
+11/24/2017 02:31:44 PM Test get current user info
+11/24/2017 02:31:44 PM https://core-master-core-master.phrend.net/current_user.json
+11/24/2017 02:31:44 PM {'content-type': 'application/json', 'phrendly_session': '9784182ad94aaed62f2b7f620ea88c7d'}
+11/24/2017 02:31:44 PM None
+11/24/2017 02:33:21 PM Test sign in with valid credentials
+11/24/2017 02:33:21 PM https://core-master-core-master.phrend.net/users/sign_in.json
+11/24/2017 02:33:21 PM {'content-type': 'application/json'}
+11/24/2017 02:33:21 PM {"user": {"email": "api_male_seeker1@a.com", "password": "12345678"}}
+11/24/2017 02:33:22 PM 201
+11/24/2017 02:33:22 PM <Response [201]>
+11/24/2017 02:33:22 PM c767b8413d88b46cc34a5aa9d6b2fa30
+11/24/2017 02:33:22 PM c767b8413d88b46cc34a5aa9d6b2fa30
+11/24/2017 02:33:22 PM Test get current user info
+11/24/2017 02:33:22 PM https://core-master-core-master.phrend.net/current_user.json
+11/24/2017 02:33:22 PM {'content-type': 'application/json', 'phrendly_session': 'c767b8413d88b46cc34a5aa9d6b2fa30'}
+11/24/2017 02:33:22 PM None
+11/24/2017 02:33:24 PM 401
+11/24/2017 02:33:24 PM <Response [401]>
+11/24/2017 02:40:03 PM Test sign in with valid credentials
+11/24/2017 02:40:03 PM https://core-master-core-master.phrend.net/users/sign_in.json
+11/24/2017 02:40:03 PM {'content-type': 'application/json'}
+11/24/2017 02:40:03 PM {"user": {"email": "api_male_seeker1@a.com", "password": "12345678"}}
+11/24/2017 02:40:04 PM 201
+11/24/2017 02:40:04 PM <Response [201]>
+11/24/2017 02:40:04 PM d080f2bb7ebbad6472793f6af018f6e5
+11/24/2017 02:40:04 PM d080f2bb7ebbad6472793f6af018f6e5
+11/24/2017 02:40:04 PM Test get current user info
+11/24/2017 02:40:04 PM https://core-master-core-master.phrend.net/current_user.json
+11/24/2017 02:40:04 PM {'content-type': 'application/json'}
+11/24/2017 02:40:04 PM None
+11/24/2017 02:40:06 PM 401
+11/24/2017 02:40:06 PM <Response [401]>
+11/24/2017 02:46:51 PM Test sign in with valid credentials
+11/24/2017 02:46:51 PM https://core-master-core-master.phrend.net/users/sign_in.json
+11/24/2017 02:46:51 PM {'content-type': 'application/json'}
+11/24/2017 02:46:51 PM {"user": {"email": "api_male_seeker1@a.com", "password": "12345678"}}
+11/24/2017 02:46:51 PM None
+11/24/2017 02:46:53 PM 201
+11/24/2017 02:46:53 PM <Response [201]>
+11/24/2017 02:46:53 PM a7b631471ef5b90dee01c2438245d91a
+11/24/2017 02:46:53 PM a7b631471ef5b90dee01c2438245d91a
+11/24/2017 02:46:53 PM Test get current user info
+11/24/2017 02:46:53 PM https://core-master-core-master.phrend.net/current_user.json
+11/24/2017 02:46:53 PM {'content-type': 'application/json'}
+11/24/2017 02:46:53 PM None
+11/24/2017 02:46:53 PM {'phrendly_session': 'a7b631471ef5b90dee01c2438245d91a'}
+11/24/2017 02:46:54 PM 200
+11/24/2017 02:46:54 PM <Response [200]>
+11/24/2017 02:50:52 PM Test sign in with valid credentials
+11/24/2017 02:50:52 PM https://core-master-core-master.phrend.net/users/sign_in.json
+11/24/2017 02:50:52 PM {'content-type': 'application/json'}
+11/24/2017 02:50:52 PM {"user": {"email": "api_male_seeker1@a.com", "password": "12345678"}}
+11/24/2017 02:50:52 PM None
+11/24/2017 02:50:53 PM 201
+11/24/2017 02:50:53 PM <Response [201]>
+11/24/2017 02:50:53 PM e898f742431ddaf560c0cdc1c90c91b0
+11/24/2017 02:50:53 PM e898f742431ddaf560c0cdc1c90c91b0
+11/24/2017 02:50:53 PM Test get current user info
+11/24/2017 02:51:57 PM Test sign in with valid credentials
+11/24/2017 02:51:57 PM https://core-master-core-master.phrend.net/users/sign_in.json
+11/24/2017 02:51:57 PM {'content-type': 'application/json'}
+11/24/2017 02:51:57 PM {"user": {"email": "api_male_seeker1@a.com", "password": "12345678"}}
+11/24/2017 02:51:57 PM None
+11/24/2017 02:51:58 PM 201
+11/24/2017 02:51:58 PM <Response [201]>
+11/24/2017 02:51:58 PM dc512f3a8bdd101b67c8d6992f51cd66
+11/24/2017 02:51:58 PM dc512f3a8bdd101b67c8d6992f51cd66
+11/24/2017 02:51:58 PM Test get current user info
+11/24/2017 02:51:58 PM https://core-master-core-master.phrend.net/current_user.json
+11/24/2017 02:51:58 PM {'content-type': 'application/json'}
+11/24/2017 02:51:58 PM None
+11/24/2017 02:51:58 PM {'phrendly_session': 'dc512f3a8bdd101b67c8d6992f51cd66'}
+11/24/2017 02:52:00 PM 401
+11/24/2017 02:52:00 PM <Response [401]>
+11/24/2017 03:57:30 PM Test sign in with valid credentials
+11/24/2017 03:57:30 PM Test get current user info
+11/24/2017 04:06:09 PM Test get current user info
+11/24/2017 04:06:09 PM https://core-master-core-master.phrend.net/current_user.json
+11/24/2017 04:06:09 PM {'content-type': 'application/json'}
+11/24/2017 04:06:09 PM None
+11/24/2017 04:06:09 PM {'phrendly_session': None}
+11/24/2017 04:06:11 PM 401
+11/24/2017 04:06:11 PM <Response [401]>
+11/24/2017 04:12:06 PM Test get current user info
+11/24/2017 04:12:06 PM https://core-master-core-master.phrend.net/current_user.json
+11/24/2017 04:12:06 PM {'content-type': 'application/json'}
+11/24/2017 04:12:06 PM None
+11/24/2017 04:12:06 PM {'phrendly_session': None}
+11/24/2017 04:12:07 PM 401
+11/24/2017 04:12:07 PM <Response [401]>
+11/24/2017 04:12:38 PM Test sign in with valid credentials
+11/24/2017 04:12:38 PM https://core-master-core-master.phrend.net/users/sign_in.json
+11/24/2017 04:12:38 PM {'content-type': 'application/json'}
+11/24/2017 04:12:38 PM {"user": {"email": "api_male_seeker1@a.com", "password": "12345678"}}
+11/24/2017 04:12:38 PM None
+11/24/2017 04:12:40 PM 201
+11/24/2017 04:12:40 PM <Response [201]>
+11/24/2017 04:12:40 PM Core session from response is 2da7aaa58aafba51498bd32eb9e411da
+11/24/2017 04:12:40 PM Saved core session 2da7aaa58aafba51498bd32eb9e411da
+11/24/2017 04:12:40 PM Test get current user info
+11/24/2017 04:12:40 PM https://core-master-core-master.phrend.net/current_user.json
+11/24/2017 04:12:40 PM {'content-type': 'application/json'}
+11/24/2017 04:12:40 PM None
+11/24/2017 04:12:40 PM {'phrendly_session': '2da7aaa58aafba51498bd32eb9e411da'}
+11/24/2017 04:12:41 PM 401
+11/24/2017 04:12:41 PM <Response [401]>
+11/24/2017 04:22:05 PM Test sign in with valid credentials
+11/24/2017 04:22:05 PM https://core-master-core-master.phrend.net/users/sign_in.json
+11/24/2017 04:22:05 PM {'content-type': 'application/json'}
+11/24/2017 04:22:05 PM {"user": {"email": "api_male_seeker1@a.com", "password": "12345678"}}
+11/24/2017 04:22:05 PM None
+11/24/2017 04:22:06 PM 201
+11/24/2017 04:22:06 PM <Response [201]>
+11/24/2017 04:22:06 PM Core session from response is cb737ad4daebcf12f2ab5d544f95d0e6
+11/24/2017 04:22:06 PM Saved core session cb737ad4daebcf12f2ab5d544f95d0e6
+11/24/2017 04:22:06 PM Test get current user info
+11/24/2017 04:22:06 PM https://core-master-core-master.phrend.net/current_user.json
+11/24/2017 04:22:06 PM {'content-type': 'application/json'}
+11/24/2017 04:22:06 PM None
+11/24/2017 04:22:06 PM None
+11/24/2017 04:22:07 PM 200
+11/24/2017 04:22:07 PM <Response [200]>
+11/24/2017 04:23:09 PM Test sign in with valid credentials
+11/24/2017 04:23:09 PM https://core-master-core-master.phrend.net/users/sign_in.json
+11/24/2017 04:23:09 PM {'content-type': 'application/json'}
+11/24/2017 04:23:09 PM {"user": {"email": "api_male_seeker1@a.com", "password": "12345678"}}
+11/24/2017 04:23:09 PM None
+11/24/2017 04:23:10 PM 201
+11/24/2017 04:23:10 PM <Response [201]>
+11/24/2017 04:23:10 PM Core session from response is d0cb120e195ee7dc980305c830e2f09b
+11/24/2017 04:23:10 PM Saved core session d0cb120e195ee7dc980305c830e2f09b
+11/24/2017 04:23:10 PM Test get current user info
+11/24/2017 04:23:10 PM https://core-master-core-master.phrend.net/current_user.json
+11/24/2017 04:23:10 PM {'content-type': 'application/json'}
+11/24/2017 04:23:10 PM None
+11/24/2017 04:23:10 PM None
+11/24/2017 04:23:10 PM {'phrendly_session': 'd0cb120e195ee7dc980305c830e2f09b'}
+11/24/2017 04:23:11 PM 200
+11/24/2017 04:23:11 PM <Response [200]>
+11/24/2017 04:24:27 PM Test sign in with valid credentials
+11/24/2017 04:24:27 PM https://core-master-core-master.phrend.net/users/sign_in.json
+11/24/2017 04:24:27 PM {'content-type': 'application/json'}
+11/24/2017 04:24:27 PM {"user": {"email": "api_male_seeker1@a.com", "password": "12345678"}}
+11/24/2017 04:24:27 PM None
+11/24/2017 04:24:28 PM 201
+11/24/2017 04:24:28 PM <Response [201]>
+11/24/2017 04:24:28 PM Core session from response is fd5405dcc1c434f8fed10cc304128237
+11/24/2017 04:24:28 PM Saved core session fd5405dcc1c434f8fed10cc304128237
+11/24/2017 04:24:28 PM Test get current user info
+11/24/2017 04:24:28 PM https://core-master-core-master.phrend.net/current_user.json
+11/24/2017 04:24:28 PM {'content-type': 'application/json'}
+11/24/2017 04:24:28 PM None
+11/24/2017 04:24:28 PM {'phrendly_session': 'fd5405dcc1c434f8fed10cc304128237'}
+11/24/2017 04:24:29 PM 200
+11/24/2017 04:24:29 PM <Response [200]>

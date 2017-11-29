@@ -15,21 +15,32 @@ session_helper = None
 support_helper = None
 
 
+PLATFORMS = ('Android', 'iOS', 'API')
+SERVERS = ('qa', 'prod')
+
+
 def read_option(request):
     #Loading options from terminal
     options = {}
-    try:
-        platform = request.config.getoption("--platform")
-        if platform.lower() == 'android':
-            options['platform'] = 'Android'
-        elif platform.lower() == 'ios':
-            options['platform'] = 'iOS'
-        elif platform.lower() == 'api':
-            options['platform'] = 'API'
-        else:
-            raise ValueError('Unknown platform')
-    except:
-        raise ValueError('No platform has been tranfered. Please specify pltform in the following way: --platform=[platform]')
+
+    platform = request.config.getoption("--platform")
+    if platform is None:
+        raise ValueError(
+            'No platform has been transferred. Please specify pltform in the following way: --platform=[platform]')
+
+    required_platform = get_required_option(platform, PLATFORMS)
+    if required_platform is None:
+        raise ValueError('Platform {0} is unknown. Please specify one of the following: {1}'.format(platform, PLATFORMS))
+    options['platform'] = required_platform
+
+    server = request.config.getoption("--server")
+    if server is None:
+        raise ValueError('No server has been transferred. Please specify server in the following way: --server=[server]')
+
+    required_server = get_required_option(server, SERVERS)
+    if required_server is None:
+        raise ValueError('Server {0} is unknown. Please specify one of the following: {1}'.format(server, SERVERS))
+    options['server'] = required_server
 
     return options
 
@@ -40,34 +51,24 @@ def read_config():
         return json.load(f)
 
 
+def get_required_option(option, options):
+    for possible_option in options:
+        if option.lower() == possible_option.lower():
+            return possible_option
+    return None
+
+
+def get_server_options(server):
+    config_options = read_config()
+    return config_options['servers'][server]
+
+
 @pytest.fixture(scope='session')
 def helper():
     global support_helper
     if support_helper is None:
         support_helper = Helper()
     yield support_helper
-
-
-@pytest.fixture()
-def app(request, helper):
-    options = read_option(request)
-    if options['platform']=='Android' or options['platform']=='iOS':
-        global ui_helper
-        config = read_config()
-        if ui_helper is None:
-            ui_helper = Application(helper, session, options['platform'], config['server'])
-        yield ui_helper
-        # Everything here will be executed as teardown
-
-
-@pytest.fixture()
-def api(request, helper, session):
-    options = read_option(request)
-    if options['platform']=='API':
-        global api_helper
-        config = read_config()
-        api_helper = Api(helper, session, config['server'])
-        yield api_helper
 
 
 @pytest.fixture(scope='session')
@@ -83,5 +84,26 @@ def session(request):
     session_helper.db_helper.close_connection()
 
 
+@pytest.fixture()
+def app(request, helper):
+    options = read_option(request)
+    if options['platform']=='Android' or options['platform']=='iOS':
+        global ui_helper
+        if ui_helper is None:
+            ui_helper = Application(helper, session, options['platform'], get_server_options(options['server']))
+        yield ui_helper
+        # Everything here will be executed as teardown
+
+
+@pytest.fixture()
+def api(request, helper, session):
+    options = read_option(request)
+    if options['platform']=='API':
+        global api_helper
+        api_helper = Api(helper, session, get_server_options(options['server']))
+        yield api_helper
+
+
 def pytest_addoption(parser):
     parser.addoption("--platform", action="store")
+    parser.addoption("--server", action="store")

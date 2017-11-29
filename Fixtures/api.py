@@ -8,10 +8,10 @@ from PageObject import api_helpers
 
 
 class Api:
-    def __init__(self, helper, session, server_url):
+    def __init__(self, helper, session, server_options):
         self.helper = helper
         self.session = session
-        self.url = server_url
+        self.url = server_options['url'] #TODO add check for empty URL
         self.request = None
 
     def get_json_scheme(self, scheme_name):
@@ -34,6 +34,7 @@ class Api:
         else:
             self.request.add_data(method_to_call(self.session.users[user], args))
 
+    #TODO move it somewhere e.g. to ApiRequest class. Maybe add one more method for empty request
     def create_request_with_default_headers(self):
         self.request = ApiRequest()
         self.request.headers["content-type"] = "application/json"

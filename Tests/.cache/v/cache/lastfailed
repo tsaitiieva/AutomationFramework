@@ -1,4 +1,5 @@
 {
+  "test_api.py::test_get_phrends": true,
   "test_api.py::test_major": true,
   "test_api.py::test_minor": true,
   "test_authentication.py::test_authentication_with_valid_credentials": true

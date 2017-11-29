@@ -1,3 +1,9 @@
 {
-  "server" : "https://core-master-core-master.phrend.net"
+  "servers":  {
+  "qa" : {
+    "url" : "https://core-master-core-master.phrend.net"},
+  "prod" : {
+    "url": ""
+  }
+}
 }
