@@ -1,20 +1,70 @@
+from Model.ApiRequest import ApiRequest
 from jsonschema import validate
 import allure
 
 
-@allure.step("Create request with required parameters")
-def create_request_with_required_parameters(api, api_helpers_method=None, user=None, *parameters):
+@allure.step("Create empty request without headers, data or parameters")
+def create_empty_request(api):
+    api.request = ApiRequest()
+
+
+@allure.step("Create request with default headers")
+def create_default_request(api):
+    create_empty_request(api)
+    api.request.headers["content-type"] = "application/json"
+
+
+@allure.step("Create request with default headers and user's session cookies")
+def create_default_request_with_user_session_cookies(api, user):
+    create_default_request(api)
+    if api.session.users[user].session_id is None:
+        raise ValueError("Session id for user {0} is undefined".format(user))
+    api.request.add_cookies(dict(phrendly_session=api.session.users[user].session_id))
+
+
+@allure.step("Add request(s) to request")
+def add_request_headers(api, headers):
+    if api.request is None:
+        raise ValueError("Request is None. You should create request first.")
+    api.request.add_headers(headers)
+
+
+@allure.step("Add cookies to request")
+def add_request_cookies(api, cookies):
+    if api.request is None:
+        raise ValueError("Request is None. You should create request first.")
+    api.request.add_cookies(cookies)
+
+
+@allure.step("Add parameter(s) to request")
+def add_request_parameters(api, params):
+    if api.request is None:
+        raise ValueError("Request is None. You should create request first.")
+    api.request.add_params(params)
+
+
+@allure.step("Add data to request")
+def add_request_data(api, data):
     """
-    Create request with defual headers, if api_helpers_method is transefered addtitional data will be attached to request
+        Data should be transferred already converted to correct format (json, xml etc.)
     """
-    api.create_request_with_default_headers()
-    if api_helpers_method is not None:
-        api.add_parameters(api_helpers_method, user, parameters)
+    if api.request is None:
+        raise ValueError("Request is None. You should create request first.")
+    api.request.add_data(data)
+
+
+@allure.step("Add data to request using predefined method")
+def add_request_data_from_api_helpers(api, api_helpers_method=None, user=None, *parameters):
+    """
+        Calls method from api_helpers class and adds its result as request data. Methods in api_helpers responsible for
+        converting data to correct format.
+    """
+    api.add_request_data(api_helpers_method, user, parameters)
 
 
 @allure.step("Send request to url")
 def send_request_to_url(api, request_type, url, headers=None, params=None, data=None, cookies=None):
-    response = api.send_request(url, request_type, headers, params, data, cookies)
+    response = api.send_request(request_type, url, headers, params, data, cookies)
     api.request.add_response(response)
 
 
@@ -37,16 +87,15 @@ def verify_that_response_match_json_schema(api, shmene_name):
     validate(response_body, json_scheme)
 
 
-@allure.step("Save core session from response to users session instance")
-def save_core_session_from_response(api, user):
-    core_session = api.request.get_response_body()['session_id']
-    api.session.users[user].add_core_session(core_session)
+@allure.step("Save response data to users session instance")
+def save_response_param_to_user_data(api, response_param, user):
+    response_param = api.request.get_response_body()[response_param]
+    api.session.users[user].add_core_session(response_param)
 
 
-@allure.step("Use user's session in cookies")
-def use_user_session_cookie(api, user):
-    api.create_request_with_default_headers()
-    api.request.add_cookies(dict(phrendly_session=api.session.users[user].core_session))
+def save_response_param_to_session_data(api, param):
+    pass
+
 
 
 

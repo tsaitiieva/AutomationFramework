@@ -13,6 +13,30 @@ class ApiRequest:
         self.response_code = None
         self.response_body = None
 
+    def add_headers(self, headers):
+        if headers is not None:
+            if self.headers is None:
+                headers = {}
+            self.headers.update(headers)
+
+    def add_params(self, params):
+        if params is not None:
+            if self.params is None:
+                params = {}
+            self.headers.update(params)
+
+    def add_data(self, data):
+        if data is not None:
+            self.data = data
+
+    def add_cookies(self, cookies):
+        if cookies is not None:
+            if self.cookies is None:
+                self.cookies = {}
+            self.cookies.update(cookies)
+
+
+    #---------Response---------
     def add_response(self, response):
         self.response = response
 
@@ -28,34 +52,12 @@ class ApiRequest:
     def get_response_body(self):
         if self.response is None:
             raise ValueError('Response is None')
+        parsed_response = self.response.json()
 
-        #TODO if response is different change it
-        if self.response_body is None:
-            self.response_body = self.response.json()
+        if self.response_body is None or self.response_body!=parsed_response:
+            self.response_body = parsed_response
 
         return self.response_body
-
-    def add_headers(self, headers):
-        if headers is not None:
-            if self.headers is None:
-                headers = {}
-            self.headers.update(headers)
-
-    def add_params(self, params):
-        if params is not None:
-            if self.params is None:
-                params = {}
-            self.headers.update(params)
-
-    def add_data(self, data):
-        if data is not None:
-            self.data = json.dumps(data)
-
-    def add_cookies(self, cookies):
-        if cookies is not None:
-            if self.cookies is None:
-                self.cookies = {}
-            self.cookies.update(cookies)
 
     def clear_response(self):
         self.response_code = None

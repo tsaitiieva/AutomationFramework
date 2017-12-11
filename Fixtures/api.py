@@ -14,17 +14,16 @@ class Api:
         self.url = server_options['url'] #TODO add check for empty URL
         self.request = None
 
-    def get_json_scheme(self, scheme_name):
-        path_to_scheme = os.path.join(self.helper.root_path, "Support/JSON_scheme/{}.json".format(scheme_name))
-        with open(path_to_scheme, 'r') as scheme:
-            return json.load(scheme)
-
-    def add_parameters(self, api_helpers_method, user, args):
+    def add_request_data(self, api_helpers_method, user, args):
         """
         Call method from api_helpers with specified arguments and use its result as request data
         """
-        method_to_call = getattr(api_helpers, 'return_{}'.format(api_helpers_method))
+        if self.request is None:
+            raise ValueError("Request is None. You should create request first.")
+        if api_helpers_method is None:
+            raise ValueError("No api helpers method name has been transferred. Please specify method name.")
 
+        method_to_call = getattr(api_helpers, 'return_{}'.format(api_helpers_method))
         if user is None and len(args) == 0:
             self.request.add_data(method_to_call())
         elif user is None:
@@ -34,16 +33,11 @@ class Api:
         else:
             self.request.add_data(method_to_call(self.session.users[user], args))
 
-    #TODO move it somewhere e.g. to ApiRequest class. Maybe add one more method for empty request
-    def create_request_with_default_headers(self):
-        self.request = ApiRequest()
-        self.request.headers["content-type"] = "application/json"
-
-    def send_request(self, url, type, headers=None, params=None, data=None, cookies=None):
+    def send_request(self, type, url, headers=None, params=None, data=None, cookies=None):
         uri = "{}{}".format(self.url, url)
 
         if self.request is None:
-            self.create_request_with_default_headers()
+            self.request = ApiRequest()
 
         self.request.add_headers(headers)
         self.request.add_params(params)
@@ -64,4 +58,9 @@ class Api:
         elif type.upper() == 'DELETE':
             return requests.delete(uri, headers=self.request.headers, params=self.request.params, data=self.request.data, cookies=self.request.cookies)
         else:
-            raise ValueError('No method defined')
+            raise ValueError('Undefined method {0}'.format(type))
+
+    def get_json_scheme(self, scheme_name):
+        path_to_scheme = os.path.join(self.helper.root_path, "Support/JSON_scheme/{}.json".format(scheme_name))
+        with open(path_to_scheme, 'r') as scheme:
+            return json.load(scheme)

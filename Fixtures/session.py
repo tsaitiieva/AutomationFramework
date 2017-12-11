@@ -7,7 +7,6 @@ class Session:
         self.db_helper = DatabaseHelper()
         self.users = {}
 
-
     def get_users_from_db(self, platform):
         query = "select a.user, u.* from Accounts as a join Users as u " \
                 "where a.UserId == u.Id and a.platform == '{0}';".format(platform)
@@ -16,6 +15,7 @@ class Session:
             self.users[user[0]] = User(user[1:])
 
     def save_users_to_db(self):
+        #TODO add saving users data to Server
         pass
 
     def __repr__(self):
