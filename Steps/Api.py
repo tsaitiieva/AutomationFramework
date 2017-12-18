@@ -17,9 +17,9 @@ def create_default_request(api):
 @allure.step("Create request with default headers and user's session cookies")
 def create_default_request_with_user_session_cookies(api, user):
     create_default_request(api)
-    if api.session.users[user].session_id is None:
-        raise ValueError("Session id for user {0} is undefined".format(user))
-    api.request.add_cookies(dict(phrendly_session=api.session.users[user].session_id))
+    if api.session.users[user].session is None:
+        raise ValueError("Session for user {0} is undefined".format(user))
+    api.request.add_cookies(dict(phrendly_session=api.session.users[user].session))
 
 
 @allure.step("Add request(s) to request")
@@ -90,7 +90,7 @@ def verify_that_response_match_json_schema(api, shmene_name):
 @allure.step("Save response data to users session instance")
 def save_response_param_to_user_data(api, response_param, user):
     response_param = api.request.get_response_body()[response_param]
-    api.session.users[user].add_core_session(response_param)
+    api.session.users[user].session = response_param
 
 
 def save_response_param_to_session_data(api, param):

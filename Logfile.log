@@ -216,3 +216,6 @@
 11/24/2017 04:24:28 PM {'phrendly_session': 'fd5405dcc1c434f8fed10cc304128237'}
 11/24/2017 04:24:29 PM 200
 11/24/2017 04:24:29 PM <Response [200]>
+12/18/2017 03:18:54 PM [User seeded_male with email=test1@a.com, password=12345678, name=Test 1, platform=Api, session=None, User seeded_female with email=test4@a.com, password=12345678, name=Test 4, platform=Api, session=None]
+12/18/2017 03:34:43 PM {'seeded_male': User seeded_male with email=api_male_seeker1@a.com, password=12345678, name=api_male_seeker1, platform=Api, session=None, 'seeded_female': User seeded_female with email=api_female_speaker1@a.com, password=12345678, name=api_female_speaker1, platform=Api, session=None}
+12/18/2017 03:35:20 PM {'seeded_male': User seeded_male with email=api_male_seeker1@a.com, password=12345678, name=api_male_seeker1, platform=Api, session=None, 'seeded_female': User seeded_female with email=api_female_speaker1@a.com, password=12345678, name=api_female_speaker1, platform=Api, session=None}

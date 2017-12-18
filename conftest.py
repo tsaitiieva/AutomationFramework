@@ -59,8 +59,11 @@ def get_required_option(option, options):
 
 
 def get_server_options(server):
-    config_options = read_config()
-    return config_options['servers'][server]
+    return read_config()['servers'][server]
+
+
+def get_database_options(database_name):
+    return read_config()['databases'][database_name]
 
 
 @pytest.fixture(scope='session')
@@ -76,12 +79,16 @@ def session(request):
     global session_helper
     if session_helper is None:
         session_helper = Session()
+        db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), get_database_options('users'))
+        session_helper.connect_to_db(db_path)
+        # TODO when populate DB?
+        session_helper.populate_accounts_db()
         options = read_option(request)
         session_helper.get_users_from_db(options['platform'])
     yield session_helper
     # Everything here will be executed as teardown
-    session_helper.db_helper.save_changes()
-    session_helper.db_helper.close_connection()
+    session_helper.save_users_to_db()
+    session_helper.close_db_connection()
 
 
 @pytest.fixture()

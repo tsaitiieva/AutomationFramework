@@ -1,11 +1,18 @@
-class User:
-    def __init__(self, user_parameters):
-        (self.id, self.email, self.password, self.name) = user_parameters
-        self.session_id = None
 
-    def add_core_session(self, session_id):
-        self.session_id = session_id
+from peewee import *
+from Fixtures.database import BaseSQLiteUsersModel
+
+
+class User(BaseSQLiteUsersModel):
+    #user + platform should be unique combination
+    user = CharField()
+    email = CharField()
+    password = CharField()
+    name = CharField()
+    platform = CharField(null=True)
+    session = CharField(null=True)
 
     def __repr__(self):
-        return 'id={}, email={}, password={}, name={}'.format(self.id, self.email, self.password, self.name)
+        return 'User {} with email={}, password={}, name={}, platform={}, session={}'.format(self.user, self.email,
+                                                                                             self.password, self.name, self.platform, self.session)
 

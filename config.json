@@ -1,9 +1,10 @@
 {
   "servers":  {
-  "qa" : {
-    "url" : "https://core-master-core-master.phrend.net"},
-  "prod" : {
-    "url": ""
-  }
-}
+            "qa" : {
+                "url" : "https://core-master-core-master.phrend.net"},
+            "prod" : {
+                "url": ""}
+              },
+  "databases":
+              {"users" : "Support/Accounts1.db"}
 }
