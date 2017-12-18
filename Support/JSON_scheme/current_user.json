@@ -215,6 +215,10 @@
     "giftable_balance": {
       "id": "/properties/giftable_balance",
       "type": "string"
+    },
+    "pending_star_notifications": {
+      "id": "/properties/pending_star_notifications",
+      "type": "boolean"
     }
   },
   "required": [
@@ -259,7 +263,8 @@
     "phone_minutes_per_drink",
     "balance",
     "has_sent_message",
-    "giftable_balance"
+    "giftable_balance",
+    "pending_star_notifications"
   ],
   "type": "object"
 }

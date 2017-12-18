@@ -1,9 +1,7 @@
-
 from peewee import *
-from Fixtures.database import BaseSQLiteUsersModel
 
 
-class User(BaseSQLiteUsersModel):
+class User(Model):
     #user + platform should be unique combination
     user = CharField()
     email = CharField()
@@ -15,4 +13,7 @@ class User(BaseSQLiteUsersModel):
     def __repr__(self):
         return 'User {} with email={}, password={}, name={}, platform={}, session={}'.format(self.user, self.email,
                                                                                              self.password, self.name, self.platform, self.session)
+
+    class Meta:
+        database = SqliteDatabase(None)
 

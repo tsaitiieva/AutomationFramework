@@ -1,4 +1,3 @@
 {
-  "Tests/test_api.py::test_get_current_user_info": true,
   "Tests/test_authentication.py::test_authentication_with_valid_credentials": true
 }

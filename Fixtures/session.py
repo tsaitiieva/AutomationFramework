@@ -10,7 +10,9 @@ class Session:
         self.users = {}
 
     def connect_to_db(self, path):
-        self.users_db = DatabaseHelper.link_with_sqlite_db(path)
+        # self.users_db = DatabaseHelper.link_with_sqlite_db(path)
+        User._meta.database.init(path)
+        self.users_db = User._meta.database
         self.users_db.connect()
 
     def close_db_connection(self):

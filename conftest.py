@@ -82,7 +82,7 @@ def session(request):
         db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), get_database_options('users'))
         session_helper.connect_to_db(db_path)
         # TODO when populate DB?
-        session_helper.populate_accounts_db()
+        # session_helper.populate_accounts_db()
         options = read_option(request)
         session_helper.get_users_from_db(options['platform'])
     yield session_helper
