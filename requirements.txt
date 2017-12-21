@@ -7,9 +7,11 @@ chardet==3.0.4
 enum34==1.1.6
 flaky==3.4.0
 idna==2.6
+invoke==0.22.0
 jsonschema==2.6.0
 lxml==4.1.0
 namedlist==1.7
+peewee==2.10.2
 pluggy==0.5.2
 py==1.4.34
 pytest==3.2.3

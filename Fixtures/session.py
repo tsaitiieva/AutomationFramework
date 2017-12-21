@@ -18,16 +18,23 @@ class Session:
     def close_db_connection(self):
         self.users_db.close()
 
-    def populate_accounts_db(self):
+     #new method
+    def create_tables_db(self):
         self.users_db.create_tables([User])
 
+    def populate_accounts_db(self):
+        pass
+      #This goes to separate mehtod
+      #self.users_db.create_tables([User])
+
         #TODO I don't know where to put all these
-        User.create(user='seeded_male', email='api_male_seeker1@a.com', password='12345678', name='api_male_seeker1', platform='Api')
-        User.create(user='seeded_male', email='mobile_male_speaker3@a.com', password='12345678', name='mobile_male_speaker3', platform='iOS')
-        User.create(user='seeded_male', email='api_male_seeker2@a.com', password='12345678', name='api_male_seeker2', platform='Android')
-        User.create(user='seeded_female', email='api_female_speaker1@a.com', password='12345678', name='api_female_speaker1', platform='Api')
-        User.create(user='seeded_female', email='mobile_female_receiver1@a.com', password='12345678', name='mobile_female_receiver1', platform='iOS')
-        User.create(user='seeded_female', email='api_female_speaker2@a.com', password='12345678', name='api_female_speaker2', platform='Android')
+        #this goes into separate file check tasks.py
+     #   User.create(user='seeded_male', email='api_male_seeker1@a.com', password='12345678', name='api_male_seeker1', platform='Api')
+     #   User.create(user='seeded_male', email='mobile_male_speaker3@a.com', password='12345678', name='mobile_male_speaker3', platform='iOS')
+     #   User.create(user='seeded_male', email='api_male_seeker2@a.com', password='12345678', name='api_male_seeker2', platform='Android')
+     #   User.create(user='seeded_female', email='api_female_speaker1@a.com', password='12345678', name='api_female_speaker1', platform='Api')
+     #   User.create(user='seeded_female', email='mobile_female_receiver1@a.com', password='12345678', name='mobile_female_receiver1', platform='iOS')
+     #   User.create(user='seeded_female', email='api_female_speaker2@a.com', password='12345678', name='api_female_speaker2', platform='Android')
 
     def get_users_from_db(self, platform):
         query = User.select().where(User.platform=='Api')
