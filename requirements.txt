@@ -11,7 +11,7 @@ jsonschema==2.6.0
 lxml==4.1.0
 namedlist==1.7
 pluggy==0.5.2
-py==1.4.34
+py==1.10.0
 pytest==3.2.3
 requests==2.18.4
 selenium==3.7.0
